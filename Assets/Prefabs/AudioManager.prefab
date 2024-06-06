@@ -53,6 +53,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Theme
     clip: {fileID: 0}
+    loop: 1
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Error
+    clip: {fileID: 0}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: BuySuccessful
+    clip: {fileID: 0}
     loop: 0
     volume: 0
     pitch: 0

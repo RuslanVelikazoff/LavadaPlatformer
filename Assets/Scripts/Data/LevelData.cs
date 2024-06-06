@@ -1,10 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelData : MonoBehaviour
 {
     private const string SaveKey = "MainSaveLevel";
 
+    [SerializeField]
     private bool[] _levelUnlock;
+    [SerializeField]
+    private bool[] _levelCompleted;
     
     public static LevelData Instance;
 
@@ -50,6 +54,7 @@ public class LevelData : MonoBehaviour
         var data = SaveManager.Load<GameData>(SaveKey);
 
         _levelUnlock = data.levelUnlock;
+        _levelCompleted = data.levelCompleted;
     }
 
     private void Save()
@@ -62,9 +67,20 @@ public class LevelData : MonoBehaviour
     {
         var data = new GameData()
         {
-            levelUnlock = _levelUnlock
+            levelUnlock = _levelUnlock,
+            levelCompleted = _levelCompleted
         };
 
         return data;
+    }
+
+    public bool[] GetLevelUnlockArray()
+    {
+        return _levelUnlock;
+    }
+
+    public bool[] GetLevelCompletedArray()
+    {
+        return _levelCompleted;
     }
 }

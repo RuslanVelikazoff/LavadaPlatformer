@@ -39,10 +39,15 @@ public class ShopPanel : MonoBehaviour
             {
                 if (currentCoinAmount >= costAccesories[0])
                 {
+                    AudioManager.Instance.Play("BuySuccessful");
                     CoinData.Instance.ReduceCoin(costAccesories[0]);
                     ShopData.Instance.BuyAccessories(0);
                     SetCoinText();
                     SetButtonSprite();
+                }
+                else
+                {
+                    AudioManager.Instance.Play("Error");
                 }
             });
         }
@@ -54,10 +59,15 @@ public class ShopPanel : MonoBehaviour
             {
                 if (currentCoinAmount >= costAccesories[1])
                 {
+                    AudioManager.Instance.Play("BuySuccessful");
                     CoinData.Instance.ReduceCoin(costAccesories[1]);
                     ShopData.Instance.BuyAccessories(1);
                     SetCoinText();
                     SetButtonSprite();
+                }
+                else
+                {
+                    AudioManager.Instance.Play("Error");
                 }
             });
         }
@@ -69,10 +79,15 @@ public class ShopPanel : MonoBehaviour
             {
                 if (currentCoinAmount >= costAccesories[2])
                 {
+                    AudioManager.Instance.Play("BuySuccessful");
                     CoinData.Instance.ReduceCoin(costAccesories[2]);
                     ShopData.Instance.BuyAccessories(2);
                     SetCoinText();
                     SetButtonSprite();
+                }
+                else
+                {
+                    AudioManager.Instance.Play("Error");
                 }
             });
         }
@@ -84,10 +99,15 @@ public class ShopPanel : MonoBehaviour
             {
                 if (currentCoinAmount >= costAccesories[3])
                 {
+                    AudioManager.Instance.Play("BuySuccessful");
                     CoinData.Instance.ReduceCoin(costAccesories[3]);
                     ShopData.Instance.BuyAccessories(3);
                     SetCoinText();
                     SetButtonSprite();
+                }
+                else
+                {
+                    AudioManager.Instance.Play("Error");
                 }
             });
         }
