@@ -45,6 +45,7 @@ public class LevelPanel : MonoBehaviour
                 if (levelUnlock[0])
                 {
                     AudioManager.Instance.Play("Click");
+                    LevelData.Instance.SetCurrentLevelIndex(0);
                     Loader.Load(Loader.Scene.LevelScene1);
                 }
                 else
@@ -62,6 +63,7 @@ public class LevelPanel : MonoBehaviour
                 if (levelUnlock[1])
                 {
                     AudioManager.Instance.Play("Click");
+                    LevelData.Instance.SetCurrentLevelIndex(1);
                     Loader.Load(Loader.Scene.LevelScene2);
                 }
                 else
@@ -79,6 +81,7 @@ public class LevelPanel : MonoBehaviour
                 if (levelUnlock[2])
                 {
                     AudioManager.Instance.Play("Click");
+                    LevelData.Instance.SetCurrentLevelIndex(2);
                     Loader.Load(Loader.Scene.LevelScene3);
                 }
                 else
@@ -96,6 +99,7 @@ public class LevelPanel : MonoBehaviour
                 if (levelUnlock[3])
                 {
                     AudioManager.Instance.Play("Click");
+                    LevelData.Instance.SetCurrentLevelIndex(3);
                     Loader.Load(Loader.Scene.LevelScene4);
                 }
                 else
@@ -113,6 +117,7 @@ public class LevelPanel : MonoBehaviour
                 if (levelUnlock[4])
                 {
                     AudioManager.Instance.Play("Click");
+                    LevelData.Instance.SetCurrentLevelIndex(4);
                     Loader.Load(Loader.Scene.LevelScene5);
                 }
                 else
@@ -130,6 +135,7 @@ public class LevelPanel : MonoBehaviour
                 if (levelUnlock[5])
                 {
                     AudioManager.Instance.Play("Click");
+                    LevelData.Instance.SetCurrentLevelIndex(5);
                     Loader.Load(Loader.Scene.LevelScene6);
                 }
                 else

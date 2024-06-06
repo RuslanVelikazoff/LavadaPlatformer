@@ -9,6 +9,8 @@ public class LevelData : MonoBehaviour
     private bool[] _levelUnlock;
     [SerializeField]
     private bool[] _levelCompleted;
+
+    private int currentLevelIndex;
     
     public static LevelData Instance;
 
@@ -74,13 +76,33 @@ public class LevelData : MonoBehaviour
         return data;
     }
 
+    public void SetCurrentLevelIndex(int index)
+    {
+        currentLevelIndex = index;
+    }
+
+    public int GetCurrentLevelIndex()
+    {
+        return currentLevelIndex;
+    }
+
     public bool[] GetLevelUnlockArray()
     {
         return _levelUnlock;
     }
 
+    public void SetLevelUnlock(int index)
+    {
+        _levelUnlock[index] = true;
+    }
+
     public bool[] GetLevelCompletedArray()
     {
         return _levelCompleted;
+    }
+
+    public void SetLevelComplete(int index)
+    {
+        _levelCompleted[index] = true;
     }
 }
