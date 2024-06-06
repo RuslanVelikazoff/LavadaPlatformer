@@ -7,11 +7,19 @@ public class MainPanel : MonoBehaviour
     private Button startButton;
     [SerializeField] 
     private Button settingsButton;
+    [SerializeField] 
+    private Button shopButton;
     [SerializeField]
     private Button exitButton;
 
+    [Space(13)]
+    
+    [SerializeField] 
+    private GameObject levelPanel;
     [SerializeField] 
     private GameObject settingsPanel;
+    [SerializeField]
+    private GameObject shopPanel;
 
     private void OnEnable()
     {
@@ -25,7 +33,9 @@ public class MainPanel : MonoBehaviour
             startButton.onClick.RemoveAllListeners();
             startButton.onClick.AddListener(() =>
             {
-                Debug.Log("Start");
+                AudioManager.Instance.Play("Click");
+                this.gameObject.SetActive(false);
+                levelPanel.SetActive(true);
             });
         }
 
@@ -34,8 +44,20 @@ public class MainPanel : MonoBehaviour
             settingsButton.onClick.RemoveAllListeners();
             settingsButton.onClick.AddListener(() =>
             {
-                settingsPanel.gameObject.SetActive(true);
+                AudioManager.Instance.Play("Click");
                 this.gameObject.SetActive(false);
+                settingsPanel.SetActive(true);
+            });
+        }
+
+        if (shopButton != null)
+        {
+            shopButton.onClick.RemoveAllListeners();
+            shopButton.onClick.AddListener(() =>
+            {
+                AudioManager.Instance.Play("Click");
+                this.gameObject.SetActive(false);
+                shopPanel.SetActive(true);
             });
         }
 
@@ -44,6 +66,7 @@ public class MainPanel : MonoBehaviour
             exitButton.onClick.RemoveAllListeners();
             exitButton.onClick.AddListener(() =>
             {
+                AudioManager.Instance.Play("Click");
                 Application.Quit();
             });
         }
