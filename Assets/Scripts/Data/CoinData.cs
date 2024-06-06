@@ -4,6 +4,7 @@ public class CoinData : MonoBehaviour
 {
     private const string SaveKey = "MainSaveCoin";
 
+    [SerializeField]
     private int _coin;
     
     public static CoinData Instance;
@@ -66,5 +67,22 @@ public class CoinData : MonoBehaviour
         };
 
         return data;
+    }
+
+    public int GetCoinAmount()
+    {
+        return _coin;
+    }
+
+    public void ReduceCoin(int amount)
+    {
+        _coin -= amount;
+        Save();
+    }
+
+    public void AddCoin(int amount)
+    {
+        _coin += amount;
+        Save();
     }
 }

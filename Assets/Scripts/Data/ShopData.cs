@@ -3,8 +3,7 @@ using UnityEngine;
 public class ShopData : MonoBehaviour
 {
     private const string SaveKey = "MainSaveShop";
-
-    private bool[] _costumePurchased;
+    
     private bool[] _accessoriesPurchased;
     
     public static ShopData Instance;
@@ -49,8 +48,7 @@ public class ShopData : MonoBehaviour
     private void Load()
     {
         var data = SaveManager.Load<GameData>(SaveKey);
-
-        _costumePurchased = data.costumePurchased;
+        
         _accessoriesPurchased = data.accessoriesPurchased;
     }
 
@@ -64,10 +62,20 @@ public class ShopData : MonoBehaviour
     {
         var data = new GameData()
         {
-            costumePurchased = _costumePurchased,
             accessoriesPurchased = _accessoriesPurchased
         };
 
         return data;
+    }
+
+    public bool GetStatusAccessories(int index)
+    {
+        return _accessoriesPurchased[index];
+    }
+
+    public void BuyAccessories(int index)
+    {
+        _accessoriesPurchased[index] = true;
+        Save();
     }
 }
