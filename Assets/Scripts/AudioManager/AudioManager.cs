@@ -42,6 +42,8 @@ public class AudioManager : MonoBehaviour
 
             s.source.loop = s.loop;
         }
+        
+        Play("Theme");
     }
 
     public void Play(string name)

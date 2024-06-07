@@ -9,6 +9,7 @@ public class Dynamite : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.Play("Explosion");
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
             PlayerHealthBar.Instance.DamagePlayer(40);

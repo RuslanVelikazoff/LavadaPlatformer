@@ -46,43 +46,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Click
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: b0cc932855d18384b8e54c25be07c509, type: 3}
     loop: 0
     volume: 0
     pitch: 0
     source: {fileID: 0}
   - name: Theme
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: a8ac52ebc7f15f245b6ff3c0864249f8, type: 3}
     loop: 1
     volume: 0
     pitch: 0
     source: {fileID: 0}
   - name: Error
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: bd27ab1687fd2fa48ae5f45e0617a34c, type: 3}
     loop: 0
     volume: 0
     pitch: 0
     source: {fileID: 0}
   - name: BuySuccessful
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 1d31f17ffa777a74eab711d2941ba165, type: 3}
     loop: 0
     volume: 0
     pitch: 0
     source: {fileID: 0}
   - name: AddCoin
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 60f5c7588fa096344a7d7eeba9cad2c8, type: 3}
     loop: 0
     volume: 0
     pitch: 0
     source: {fileID: 0}
   - name: Win
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 3e32ee15d966f0846ac7fc05b9814bb2, type: 3}
     loop: 0
     volume: 0
     pitch: 0
     source: {fileID: 0}
   - name: Lose
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7f512d4b2d975334790a4f65aa2c6069, type: 3}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Hit
+    clip: {fileID: 8300000, guid: cf6e9a96ea4ef2648aac8ef533f76419, type: 3}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Kill
+    clip: {fileID: 8300000, guid: 1f76260c81b97114a8663c67e670d1ae, type: 3}
+    loop: 0
+    volume: 0
+    pitch: 0
+    source: {fileID: 0}
+  - name: Explosion
+    clip: {fileID: 8300000, guid: b106fba398c82ee4cb3e13ea072233d6, type: 3}
     loop: 0
     volume: 0
     pitch: 0

@@ -26,6 +26,7 @@ public class BulletPrefab : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            AudioManager.Instance.Play("Kill");
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }

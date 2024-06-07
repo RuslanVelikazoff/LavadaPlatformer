@@ -3,8 +3,7 @@ using UnityEngine;
 public class CoinData : MonoBehaviour
 {
     private const string SaveKey = "MainSaveCoin";
-
-    [SerializeField]
+    
     private int _coin;
     
     public static CoinData Instance;

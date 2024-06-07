@@ -4,10 +4,8 @@ using UnityEngine;
 public class LevelData : MonoBehaviour
 {
     private const string SaveKey = "MainSaveLevel";
-
-    [SerializeField]
+    
     private bool[] _levelUnlock;
-    [SerializeField]
     private bool[] _levelCompleted;
 
     private int currentLevelIndex;

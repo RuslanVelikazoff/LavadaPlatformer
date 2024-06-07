@@ -17,6 +17,7 @@ public class Poison : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.Play("Hit");
             Destroy(this.gameObject);
             PlayerHealthBar.Instance.DamagePlayer(30);
         }

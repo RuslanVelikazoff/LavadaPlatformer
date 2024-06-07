@@ -1,5 +1,4 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -49,7 +48,6 @@ public class PlayerAttack : MonoBehaviour
             {
                 GameObject bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
                 bullet.GetComponent<BulletPrefab>().SpawnBullet(player.transform.rotation.y);
-                Debug.Log(player.transform.rotation.y);
             }
             else
             {

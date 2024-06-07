@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            AudioManager.Instance.Play("Hit");
             PlayerHealthBar.Instance.DamagePlayer(20);
         }
     }

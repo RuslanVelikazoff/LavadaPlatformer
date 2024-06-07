@@ -1927,7 +1927,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2df403af4a4025e44b0872bf3a37ad3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _coin: 0
 --- !u!4 &369097780
 Transform:
   m_ObjectHideFlags: 0
@@ -4509,8 +4508,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 373f5edb31235574984af964425d620f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelUnlock: 
-  _levelCompleted: 
 --- !u!4 &1083594273
 Transform:
   m_ObjectHideFlags: 0
