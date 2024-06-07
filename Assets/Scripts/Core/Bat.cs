@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class Bat : MonoBehaviour
+public class Bat : Enemy
 {
     [SerializeField] 
     private float poisonLifeTime = 2.5f;

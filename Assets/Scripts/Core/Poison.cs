@@ -13,12 +13,17 @@ public class Poison : MonoBehaviour
         rigidbody.velocity = new Vector2(speed, rigidbody.velocity.y);
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
+            Destroy(this.gameObject);
             PlayerHealthBar.Instance.DamagePlayer(30);
+        }
+
+        if (other.gameObject.CompareTag("Platform"))
+        {
+            Destroy(this.gameObject);
         }
     }
 }

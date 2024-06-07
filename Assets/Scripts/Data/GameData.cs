@@ -10,7 +10,7 @@ public class GameData
 
     public GameData()
     {
-        coin = 0;
+        coin = 20000;
 
         levelUnlock = new bool[6];
         levelUnlock[0] = true;

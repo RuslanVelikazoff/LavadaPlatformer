@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return new WaitForSeconds(.1f);
+        yield return new WaitForSeconds(.12f);
         currentLevelIndex = LevelData.Instance.GetCurrentLevelIndex();
         loadingPanel.SetActive(false);
         Debug.Log(currentLevelIndex);
