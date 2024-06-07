@@ -6,13 +6,7 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Destroy(other.gameObject);
-            GameManager.Instance.LoseGame();
-        }
-
-        if (other.gameObject.CompareTag("Bullet"))
-        {
-            Destroy(this.gameObject);
+            PlayerHealthBar.Instance.DamagePlayer(20);
         }
     }
 }

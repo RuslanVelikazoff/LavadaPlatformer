@@ -24,6 +24,8 @@ public class PlayerAccessories : MonoBehaviour
 
     [SerializeField] 
     private PlayerMovement playerMovement;
+    [SerializeField] 
+    private PlayerAttack playerAttack;
     
     private IEnumerator Start()
     {
@@ -39,6 +41,9 @@ public class PlayerAccessories : MonoBehaviour
                     playerWithoutGun.SetActive(false);
                     playerMovement.SetPlayerSprite(playerWithGun);
                     playerMovement.SetPlayerAnimator(playerWithGunAnimator);
+                    playerAttack.SetPlayerAnimator(playerWithGunAnimator);
+                    playerAttack.SetPlayerGameObject(playerWithGun);
+                    playerAttack.IsPlayerWithGun(true);
                 }
                 else
                 {
@@ -46,6 +51,9 @@ public class PlayerAccessories : MonoBehaviour
                     playerWithoutGun.SetActive(true);
                     playerMovement.SetPlayerSprite(playerWithoutGun);
                     playerMovement.SetPlayerAnimator(playerWithoutGunAnimator);
+                    playerAttack.SetPlayerAnimator(playerWithoutGunAnimator);
+                    playerAttack.SetPlayerGameObject(playerWithoutGun);
+                    playerAttack.IsPlayerWithGun(false);
                 }
             }
             else

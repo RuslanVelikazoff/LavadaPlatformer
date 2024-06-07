@@ -18,7 +18,7 @@ public class Poison : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Destroy(other.gameObject);
-            GameManager.Instance.LoseGame();
+            PlayerHealthBar.Instance.DamagePlayer(30);
         }
     }
 }

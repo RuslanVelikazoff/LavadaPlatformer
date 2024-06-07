@@ -11,8 +11,7 @@ public class Dynamite : MonoBehaviour
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-            Destroy(other.gameObject);
-            GameManager.Instance.LoseGame();
+            PlayerHealthBar.Instance.DamagePlayer(40);
         }
     }
 }
