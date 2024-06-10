@@ -23,6 +23,7 @@ public class MainPanel : MonoBehaviour
 
     private void OnEnable()
     {
+        Screen.orientation = ScreenOrientation.LandscapeLeft;
         ButtonClickAction();
     }
 
