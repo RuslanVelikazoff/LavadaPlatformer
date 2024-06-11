@@ -95,7 +95,7 @@ public class Policy : MonoBehaviour
         else
         {
             string policyResult = PlayerPrefs.GetString("PolicyCheck", "");
-            if (policyResult == "Verified")
+            if (policyResult == "Confirmed")
             {
                 loadScreen.SetActive(true);
                 load.load = true;
