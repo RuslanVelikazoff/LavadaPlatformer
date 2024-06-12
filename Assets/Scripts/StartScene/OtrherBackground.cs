@@ -15,7 +15,7 @@ public class OtrherBackground : MonoBehaviour
             backWebViewButton.onClick.RemoveAllListeners();
             backWebViewButton.onClick.AddListener(() =>
             {
-                policy.GoBack();
+                policy.BackButtonAction();
             });
         }
 
@@ -24,7 +24,7 @@ public class OtrherBackground : MonoBehaviour
             forwardWebViewButton.onClick.RemoveAllListeners();
             forwardWebViewButton.onClick.AddListener(() =>
             {
-                policy.GoForward();
+                policy.ForwardButtonAction();
             });
         }
     }

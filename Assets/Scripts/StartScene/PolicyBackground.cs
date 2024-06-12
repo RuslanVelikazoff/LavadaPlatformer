@@ -13,7 +13,7 @@ public class PolicyBackground : MonoBehaviour
             agreeButton.onClick.RemoveAllListeners();
             agreeButton.onClick.AddListener(() =>
             {
-                policy.VerifyPolicy();
+                policy.ConfirmPolicy();
             });
         }
     }

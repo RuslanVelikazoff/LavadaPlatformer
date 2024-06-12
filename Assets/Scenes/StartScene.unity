@@ -152,14 +152,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f69750a32955a98409f4f6be8ba0933c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  webViewer: {fileID: 1491197000}
-  load: {fileID: 1205381940}
-  policyViewer: {fileID: 720683955}
-  link: https://gpa-fna.site/privacy-doc
-  noConnection: {fileID: 596368360}
-  loadScreen: {fileID: 1205381936}
-  policyBackground: {fileID: 139618122}
-  otherBackground: {fileID: 2048169549}
+  loader: {fileID: 1205381940}
+  policyWebView: {fileID: 720683955}
+  policyUrl: https://gpa-fna.site/privacy-doc
+  noConnectionScreen: {fileID: 596368360}
+  loadingScreen: {fileID: 1205381936}
+  webViewScreen: {fileID: 1491197000}
+  backgroundForPolicy: {fileID: 139618122}
+  backgroundForOther: {fileID: 2048169549}
 --- !u!4 &77042115
 Transform:
   m_ObjectHideFlags: 0
@@ -1942,7 +1942,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c176ff7d5da3ed34da15bee4153ebdee, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1b104320c2d775f43b563900d37869c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

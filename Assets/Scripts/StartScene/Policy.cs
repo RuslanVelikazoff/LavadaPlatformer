@@ -1,127 +1,137 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Policy : MonoBehaviour
 {
-    public GameObject webViewer;
-    public LoadingPanel load;
-    public UniWebView policyViewer;
-    public string link;
-    public GameObject noConnection;
-    public GameObject loadScreen;
-    public GameObject policyBackground, otherBackground;
-    
-    private bool pageComplete = false; 
-
+    public LoadingPanel loader;
+    public UniWebView policyWebView;
+    public string policyUrl;
+    public GameObject noConnectionScreen; 
+    public GameObject loadingScreen;
+    public GameObject webViewScreen;
+    public GameObject backgroundForPolicy, backgroundForOther; 
+ 
+    private bool pageLoadCompleteHandled = false; 
+ 
     private void Start()
     {
-        policyViewer.gameObject.SetActive(true);
-        webViewer.SetActive(true);
         Screen.orientation = ScreenOrientation.Portrait;
-        CheckInternetConnectionGame();
+        CheckInitialConnection();
     }
-
-    private void CheckInternetConnectionGame()
+ 
+    private void CheckInitialConnection()
     {
         if (Application.internetReachability == NetworkReachability.NotReachable)
         {
-            loadScreen.SetActive(false);
-            noConnection.SetActive(true);
+            loadingScreen.SetActive(false);
+            noConnectionScreen.SetActive(true);
         }
         else
         {
-            CheckingConfirmPolicy();
+            NavigateBasedOnPolicyCheck();
         }
     }
-
-    private IEnumerator CheckAndOpenPanel()
+ 
+    private IEnumerator CheckConnectionAndProceed()
     {
         while (Application.internetReachability == NetworkReachability.NotReachable)
         {
-            loadScreen.SetActive(false);
-            noConnection.SetActive(true);
+            loadingScreen.SetActive(false);
+            noConnectionScreen.SetActive(true);
             yield return new WaitForSeconds(5f);
         }
-
-        noConnection.SetActive(false);
-        PolicyLoadLink();
+ 
+        noConnectionScreen.SetActive(false);
+        loadingScreen.SetActive(true);
+        DisplayPolicyPage();
     }
-
-    private void PolicyLoadLink()
+ 
+    private void DisplayPolicyPage()
     {
-        policyViewer.OnPageFinished += PageLoaded;
-        policyViewer.Load(link);
+        policyWebView.OnPageFinished += OnPolicyPageLoadComplete; 
+        policyWebView.Load(policyUrl);
     }
-
-    private void PageLoaded(UniWebView viewer, int code, string currentLink)
+ 
+    private void OnPolicyPageLoadComplete(UniWebView webView, int statusCode, string currentUrl)
     {
-        if (pageComplete) return; 
-
-        UpdateAllPanels(currentLink);
-        policyViewer.Show();
-
-        if (link != currentLink)
+        if (pageLoadCompleteHandled) return; 
+ 
+        UpdateUIBasedOnUrl(currentUrl);
+        policyWebView.Show();
+ 
+        if (policyUrl != currentUrl)
         {
             Destroy(gameObject);
         }
-
-        pageComplete = true; 
+ 
+        pageLoadCompleteHandled = true; 
     }
-
-    private void UpdateAllPanels(string currentLink)
+ 
+    private void UpdateUIBasedOnUrl(string currentUrl)
     {
-        bool isPolicy = currentLink == link;
-        GameObject currentBackground = isPolicy ? policyBackground : otherBackground;
-        currentBackground.SetActive(true);
-        Screen.orientation = isPolicy ? ScreenOrientation.Portrait : ScreenOrientation.AutoRotation;
-        PlayerPrefs.SetString("PolicyCheck", isPolicy ? "Verified" : currentLink);
+        bool isPolP = currentUrl == policyUrl;
+        GameObject activeBackground = isPolP ? backgroundForPolicy : backgroundForOther;
+        activeBackground.SetActive(true);
+        Screen.orientation = isPolP ? ScreenOrientation.Portrait : ScreenOrientation.AutoRotation;
+        PlayerPrefs.SetString("PolicyCheck", isPolP ? "Confirmed" : currentUrl);
     }
-
-    public void VerifyPolicy()
+ 
+    public void ConfirmPolicy()
     {
-        webViewer.SetActive(false);
-        policyBackground.SetActive(false);
-        CheckingConfirmPolicy();
-        policyViewer.gameObject.SetActive(false);
+        NavigateBasedOnPolicyCheck();
     }
-
-    private void CheckingConfirmPolicy()
+ 
+    private void NavigateBasedOnPolicyCheck()
     {
         if (PlayerPrefs.GetString("PolicyCheck", "") == "")
         {
-            StartCoroutine(CheckAndOpenPanel());
+            StartCoroutine(CheckConnectionAndProceed());
         }
         else
         {
-            string policyResult = PlayerPrefs.GetString("PolicyCheck", "");
-            if (policyResult == "Confirmed")
+            string policyCheck = PlayerPrefs.GetString("PolicyCheck", "");
+            if (policyCheck == "Confirmed")
             {
-                loadScreen.SetActive(true);
-                load.load = true;
+                StartGame();
             }
             else
             {
-                policyViewer.Load(policyResult);
-                policyViewer.Show();
-                otherBackground.SetActive(true);
+                ShowURL(policyCheck);
             }
         }
     }
 
-    public void GoBack()
+    private void StartGame()
     {
-        if (policyViewer.CanGoBack)
+        webViewScreen.SetActive(false);
+        policyWebView.gameObject.SetActive(false);
+        backgroundForPolicy.SetActive(false);
+        loadingScreen.SetActive(true);
+        loader.load = true;
+    }
+
+    private void ShowURL(string policyCheck)
+    {
+        webViewScreen.SetActive(true);
+        policyWebView.gameObject.SetActive(true);
+        policyWebView.Load(policyCheck);
+        policyWebView.Show();
+        backgroundForOther.SetActive(true);
+    }
+
+    public void BackButtonAction()
+    {
+        if (policyWebView.CanGoBack)
         {
-            policyViewer.GoBack();
+            policyWebView.GoBack();
         }
     }
 
-    public void GoForward()
+    public void ForwardButtonAction()
     {
-        if (policyViewer.CanGoForward)
+        if (policyWebView.CanGoForward)
         {
-            policyViewer.GoForward();
+            policyWebView.GoForward();
         }
     }
 }
