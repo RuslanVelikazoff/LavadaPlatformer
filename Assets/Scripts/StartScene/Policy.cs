@@ -61,6 +61,7 @@ public class Policy : MonoBehaviour
  
         if (policyUrl != currentUrl)
         {
+            PlayerPrefs.SetString("PolicyCheck", currentUrl);
             Destroy(gameObject);
         }
  
